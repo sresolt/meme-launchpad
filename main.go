@@ -5,11 +5,14 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/janction/meme-launchpad/config"
 	"github.com/janction/meme-launchpad/database"
 	"github.com/janction/meme-launchpad/routes"
 )
 
 func main() {
+	config.LoadEnv()
+
 	dsn := "host=localhost user=postgres password=tu_contraseña_segura dbname=memelaunchpad port=5432 sslmode=disable TimeZone=UTC"
 
 	if err := database.Connect(dsn); err != nil {
