@@ -63,3 +63,12 @@ func CreateToken(c *gin.Context) {
 
 	c.JSON(http.StatusCreated, createdToken)
 }
+
+func GetTokens(c *gin.Context) {
+	tokens, err := services.GetTokens()
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to get tokens"})
+		return
+	}
+	c.JSON(http.StatusOK, tokens)
+}

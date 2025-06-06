@@ -7,4 +7,5 @@ import (
 
 func RegisterTokenRoutes(r *gin.Engine) {
 	r.POST("/token", controllers.CreateToken)
+	r.GET("/tokens", controllers.GetTokens)
 }
